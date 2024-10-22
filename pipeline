@@ -1,0 +1,40 @@
+pipeline {
+    agent any  // Puedes especificar un agente específico, como 'agent { label 'my-agent' }'
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Compilando el proyecto...'
+                // Aquí puedes agregar comandos de construcción
+                sh 'echo "Compilación exitosa"'
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo 'Ejecutando pruebas...'
+                // Aquí puedes agregar comandos para ejecutar pruebas
+                sh 'echo "Pruebas completadas"'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Desplegando la aplicación...'
+                // Aquí puedes agregar comandos para desplegar tu aplicación
+                sh 'echo "Despliegue exitoso"'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'El pipeline se ejecutó exitosamente!'
+        }
+        failure {
+            echo 'El pipeline falló.'
+        }
+    }
+}
+
+    
